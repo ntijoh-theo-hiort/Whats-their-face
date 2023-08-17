@@ -2,7 +2,7 @@ require 'Bundler'
 
 Bundler.require
 
-#require_relative 'models/NAME_OF_MODEL'
+require_relative './models/students.rb'
 
 require_relative 'app'
 
