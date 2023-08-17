@@ -9,7 +9,7 @@ class App < Sinatra::Base
         erb :cheatsheet
     end
 
-    get '/new-entry'
+    get '/new-entry' do
         erb :new_entry
     end 
     
