@@ -4,6 +4,10 @@ class Students
         db.execute("SELECT * FROM students")
     end
 
+    def self.all_ids
+        db.execute('SELECT id FROM students').map{|item| item["id"]}
+    end
+
     def self.fullname
         db.execute("SELECT name FROM students")
     end
