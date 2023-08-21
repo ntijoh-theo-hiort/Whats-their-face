@@ -35,7 +35,7 @@ class App < Sinatra::Base
         @correct_answer = Students.name_from_id(@student_id)
 
         if params[:student_name] == @correct_answer
-            Students.set_guessed_to_true(@student_id)
+            Students.set_guessed_to_true(@student_id, @game_id)
             session[:last_guess] = [@correct_answer, true]
         else
             session[:last_guess] = [@correct_answer, false]
