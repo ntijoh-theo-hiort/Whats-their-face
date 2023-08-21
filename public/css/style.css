@@ -90,11 +90,20 @@ header img{
     color: rgb(255, 255, 255)
 }
 
+.bg-img{
+    z-index: -1;
+    position: absolute;
+    top: 169px;
+    height: 650px;
+}
+
 .quiz-section{
+    
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    height: 100%;
 }
 
 .score-check{
@@ -109,23 +118,27 @@ header img{
 .form-container{
     margin-top: 1rem;
     text-align: center;
+    
     width: 35%;
 }
 
 .quiz-input{
     font-size: 1.5rem;
-    width: 70%;
+    width: 80%;
     padding:.1rem;
     padding-left: 10px;
     padding-right: 10px;
     height: 2rem;
-    border: 3px solid rgba(0, 0, 0, 0);
+    border: 3px solid rgba(0, 0, 0, 0.113);
+    border-radius: 10px;
+
 }
 
 .quiz-input[type=text]:focus{
     border: 3px solid rgba(239, 162, 30, 0.95);
     border-radius: 10px;
     outline: none;
+
 }
 
 .quiz-input:focus-visible{
@@ -134,5 +147,62 @@ header img{
 
 
 .quiz-submit{
-    width:
+    border: 3px solid rgba(239, 162, 30, 0.95);
+    border-radius: 10px;
+    background-color: rgba(239, 162, 30, 0.95);
+    
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: .5rem;
+}
+
+.quiz-submit:hover{
+    background-color: rgba(239, 162, 30, 0.75);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.correct-popup{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: rgba(20, 192, 1, 0.809);
+    width: fit-content;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeOut 3s ease-in;
+    
+}
+
+.incorrect-popup{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: rgba(239, 0, 0, 0.863);
+    width: fit-content;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeOut 3s ease-in;
+
+}
+
+.form-container form{
+    width: 100%;
+}
+
+@keyframes fadeOut{
+    0% {
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }

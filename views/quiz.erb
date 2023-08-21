@@ -1,24 +1,20 @@
-<head>
-    <title>What's their face?</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
 <div class="quiz-section">
     <div class="score-check"></div>
 
     <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
-
+    <!--<img class="bg-img" src="/logo/submarine.jpg">-->
     <div class="form-container">
         <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
             <input class="quiz-input" type="text" name="student_name" placeholder="Enter Guess!"> 
-            <input class="quiz-submit" type="submit" value="submit">
-            <%unless @last_guess == nil%>
-                <%if @last_guess[1]%>
-                    <div>Correct!</div>
-                <%else%>
-                    <div>Wrong, the correct name was <%=@last_guess[0]%></div>
-                <%end%>
-            <%end%>
+            <input class="quiz-submit" type="submit" value="Guess">
+            
         </form>
     </div>
+    <%unless @last_guess == nil%>
+        <%if @last_guess[1]%>
+            <div class="correct-popup">Correct!</div>
+        <%else%>
+            <div class="incorrect-popup">Wrong, the correct name was <%=@last_guess[0]%></div>
+        <%end%>
+    <%end%>
 </div>

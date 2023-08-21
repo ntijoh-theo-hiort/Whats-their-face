@@ -41,7 +41,7 @@ class Students
     end
 
     def self.set_guessed_to_true(student_id, game_id)
-        db.execute('UPDATE games SET guessed = "False" WHERE student_id = ? AND id = ?', student_id, game_id)
+        db.execute('UPDATE games SET guessed = "True" WHERE student_id = ? AND id = ?', student_id, game_id)
     end
 
     private 
