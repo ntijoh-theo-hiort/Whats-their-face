@@ -1,8 +1,9 @@
 
 <section class="img-grid">
-    <%@ids.each do |id|%>
-        <div class="img-card" style="background-image: url(/img/<%=id%>.jpeg)">
-            <h2>NAME</h2>
+    <%@students.each do |student|%>
+        <%p student%>
+        <div class="img-card" style="background-image: url(/img/<%=student['id']%>.jpeg)">
+            <h2><%=student['full_name']%></h2>
         </div>
         
     <%end%>
