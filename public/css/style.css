@@ -90,3 +90,49 @@ header img{
     color: rgb(255, 255, 255)
 }
 
+.quiz-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.score-check{
+
+}
+
+.quiz-img{
+    width: 35%;
+    border-radius: 100%;
+}
+
+.form-container{
+    margin-top: 1rem;
+    text-align: center;
+    width: 35%;
+}
+
+.quiz-input{
+    font-size: 1.5rem;
+    width: 70%;
+    padding:.1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 2rem;
+    border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.quiz-input[type=text]:focus{
+    border: 3px solid rgba(239, 162, 30, 0.95);
+    border-radius: 10px;
+    outline: none;
+}
+
+.quiz-input:focus-visible{
+   
+}
+
+
+.quiz-submit{
+    width:
+}

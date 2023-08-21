@@ -3,18 +3,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<h1 class="quiz">Quiz!</h1>
+<div class="quiz-section">
+    <div class="score-check"></div>
 
-<img src="/img/<%=@id%>.jpeg" alt="student">
+    <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
 
-<form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
-    <input type="text" name="student_name" placeholder="Enter Guess!"> 
-    <input type="submit" value="submit">
-    <%unless @last_guess == nil%>
-        <%if @last_guess[1]%>
-            <div>Correct!</div>
-        <%else%>
-            <div>Wrong, the correct name was <%=@last_guess[0]%></div>
-        <%end%>
-    <%end%>
-</form>
+    <div class="form-container">
+        <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
+            <input class="quiz-input" type="text" name="student_name" placeholder="Enter Guess!"> 
+            <input class="quiz-submit" type="submit" value="submit">
+            <%unless @last_guess == nil%>
+                <%if @last_guess[1]%>
+                    <div>Correct!</div>
+                <%else%>
+                    <div>Wrong, the correct name was <%=@last_guess[0]%></div>
+                <%end%>
+            <%end%>
+        </form>
+    </div>
+</div>
