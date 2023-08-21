@@ -1,0 +1,15 @@
+<h1 class="quiz">Quiz!</h1>
+
+<img src="/img/<%=@id%>.jpeg" alt="student">
+
+<form action="/quiz" method="POST" autocomplete="off">
+    <input type="text" name="student_name" placeholder="Enter Guess!"> 
+    <input type="submit" value="submit">
+    <%unless session[:last_guess] == nil%>
+        <%if session[:last_guess]%>
+            <div>Correct!</div>
+        <%else%>
+            <div>Wrong, the correct name was <%=@full_name%></div>
+        <%end%>
+    <%end%>
+</form>
