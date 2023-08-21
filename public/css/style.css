@@ -11,6 +11,8 @@ a{
 }
 
 header{
+    display: flex;
+    justify-content: center;
     text-align: center;
     background-color: rgba(239, 162, 30, 0.95);
     position: sticky;
@@ -18,8 +20,14 @@ header{
     margin-bottom: 2rem;
 }
 
-header{
+header:hover{
+    background-color: rgba(239, 162, 30, 0.75);
+    transition: 0.3s;
+}
 
+header a{
+    display: block;
+    width: fit-content;
 }
 
 header h1{
