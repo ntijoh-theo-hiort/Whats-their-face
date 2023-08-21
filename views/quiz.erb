@@ -1,7 +1,11 @@
+<head>
+    <title>What's their face?</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <h1 class="quiz">Quiz!</h1>
 
 <img src="/img/<%=@id%>.jpeg" alt="student">
-<h1><%=@id%></h1>
 
 <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
     <input type="text" name="student_name" placeholder="Enter Guess!"> 
