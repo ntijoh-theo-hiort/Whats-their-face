@@ -1,5 +1,17 @@
+
 <section class="img-grid">
     <%@ids.each do |id|%>
-        <img src="public/img/<%=id%>.jpeg" class="card">
+        <div class="img-card" style="background-image: url(/img/<%=id%>.jpeg)">
+            <h2>NAME</h2>
+        </div>
+        
     <%end%>
 </section>
+<div class="button-section">
+    <div class="button">
+        <a>Add New Entry</a>
+    </div>
+    <div class="button">
+        <a>Start Quiz</a>
+    </div>
+</div>
