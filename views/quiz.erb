@@ -1,12 +1,13 @@
 <h1 class="quiz">Quiz!</h1>
 
 <img src="/img/<%=@id%>.jpeg" alt="student">
+<h1><%=@id%></h1>
 
-<form action="/quiz" method="POST" autocomplete="off">
+<form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
     <input type="text" name="student_name" placeholder="Enter Guess!"> 
     <input type="submit" value="submit">
-    <%unless session[:last_guess] == nil%>
-        <%if session[:last_guess]%>
+    <%unless @last_guess == nil%>
+        <%if @last_guess%>
             <div>Correct!</div>
         <%else%>
             <div>Wrong, the correct name was <%=@full_name%></div>

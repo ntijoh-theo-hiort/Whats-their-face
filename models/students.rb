@@ -13,8 +13,7 @@ class Students
     end
 
     def self.name_from_id(id)
-        db.results_as_hash = false
-        db.execute('SELECT full_name FROM students WHERE id=?', id)[0][0]
+        db.execute('SELECT full_name FROM students WHERE id=?', id).map{|item| item['full_name']}
     end
 
     def self.create_new_game(student_amount)
@@ -35,12 +34,14 @@ class Students
         new_id
     end
 
-    def random_student_id_from_game(game_id)
-        # get a random id from the 'games' table where guessed == "False"
+    def self.random_student_id_from_game(game_id)
+        result = db.execute('SELECT student_id FROM games WHERE guessed = ? AND id = ?', "False", game_id)
+        result.map!{|item| item['student_id']}
+        result.sample
     end
 
-    def set_guessed_to_false(student_id)
-        # set guessed to false in 'games' table where id matches argument for this method
+    def self.set_guessed_to_true(student_id, game_id)
+        db.execute('UPDATE games SET guessed = "False" WHERE student_id = ? AND id = ?', student_id, game_id)
     end
 
     private 

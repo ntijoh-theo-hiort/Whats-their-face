@@ -11,8 +11,12 @@ class App < Sinatra::Base
     end
 
     get '/quiz/:game_id' do
-        @id = Students.random_student_id_from_game(params[:game_id])
+        @game_id = params[:game_id]
+        @id = Students.random_student_id_from_game(@game_id)
         @full_name = Students.name_from_id(@id)
+        p @id
+        p @full_name
+        @last_guess = session[:last_guess]
         erb :quiz
     end
 
@@ -25,11 +29,17 @@ class App < Sinatra::Base
         erb :new_entry
     end 
 
-    post '/quiz' do
-        #check if answer was correct:
-        #if correct, set guessed? in database to True
-        #also set session[:last_guess] to True
-        #else set session[:last_guess] to False
+    post '/quiz/:game_id/:student_id' do
+        @student_id = params[:student_id]
+        @game_id = params[:game_id]
+
+        if params[:student_name] == Students.name_from_id(@student_id)
+            Students.set_guessed_to_true(@student_id)
+            session[:last_guess] = true
+        else
+            session[:last_guess] = false
+        end
+
         redirect("/quiz/#{@game_id}")
     end
 
