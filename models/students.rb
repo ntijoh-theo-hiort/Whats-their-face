@@ -13,7 +13,7 @@ class Students
     end
 
     def self.name_from_id(id)
-        db.execute('SELECT full_name FROM students WHERE id=?', id).map{|item| item['full_name']}
+        db.execute('SELECT full_name FROM students WHERE id=?', id).map{|item| item['full_name']}[0]
     end
 
     def self.create_new_game(student_amount)

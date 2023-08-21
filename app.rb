@@ -32,12 +32,13 @@ class App < Sinatra::Base
     post '/quiz/:game_id/:student_id' do
         @student_id = params[:student_id]
         @game_id = params[:game_id]
+        @correct_answer = Students.name_from_id(@student_id)
 
-        if params[:student_name] == Students.name_from_id(@student_id)
+        if params[:student_name] == @correct_answer
             Students.set_guessed_to_true(@student_id)
-            session[:last_guess] = true
+            session[:last_guess] = [@correct_answer, true]
         else
-            session[:last_guess] = false
+            session[:last_guess] = [@correct_answer, false]
         end
 
         redirect("/quiz/#{@game_id}")

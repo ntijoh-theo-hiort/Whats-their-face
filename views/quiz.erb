@@ -7,10 +7,10 @@
     <input type="text" name="student_name" placeholder="Enter Guess!"> 
     <input type="submit" value="submit">
     <%unless @last_guess == nil%>
-        <%if @last_guess%>
+        <%if @last_guess[1]%>
             <div>Correct!</div>
         <%else%>
-            <div>Wrong, the correct name was <%=@full_name%></div>
+            <div>Wrong, the correct name was <%=@last_guess[0]%></div>
         <%end%>
     <%end%>
 </form>
