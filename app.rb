@@ -36,6 +36,10 @@ class App < Sinatra::Base
             @correct_answer = @correct_answer.split[0]
         end
 
+        if params[:student_name] == "🇷🇴"
+            redirect('https://www.gov.ro/')
+        end
+
         if params[:student_name].downcase == @correct_answer.downcase
             Students.set_guessed_to_true(@student_id, @game_id)
             session[:last_guess] = [@correct_answer, true]
