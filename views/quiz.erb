@@ -7,7 +7,6 @@
         <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
             <input class="quiz-input" type="text" name="student_name" placeholder="Enter Guess!"> 
             <input class="quiz-submit" type="submit" value="Guess">
-            
         </form>
     </div>
     <%unless @last_guess == nil%>

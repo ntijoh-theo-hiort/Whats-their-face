@@ -44,6 +44,18 @@ class Students
         db.execute('UPDATE games SET guessed = "True" WHERE student_id = ? AND id = ?', student_id, game_id)
     end
 
+    def self.set_to_first_or_full(game_id, first_or_full)
+        db.execute('INSERT INTO first_or_full (game_id, first_or_full_string) VALUES (?,?)', game_id, first_or_full)
+    end
+
+    def self.update_first_or_full(game_id, first_or_full)
+        db.execute('UPDATE first_or_full SET first_or_full_string = "first" WHERE game_id = ?', game_id)
+    end
+
+    def self.check_if_first_or_full(game_id)
+        db.execute('SELECT first_or_full_string FROM first_or_full WHERE game_id = ?', game_id)[0]['first_or_full_string']
+    end
+
     private 
     def self.db 
         return @db if @db   #return @db if it exists XD
