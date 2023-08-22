@@ -18,6 +18,7 @@ header{
     position: sticky;
     top:0;
     margin-bottom: 2rem;
+    transition: 0.3s;
 }
 
 header:hover{
@@ -51,7 +52,8 @@ header img{
 .img-card{
     background-size: cover;
     position: relative;
-    border: solid 1px black;
+    border: solid #a21eef9e 2px;
+    
 }
 
 .img-card h2{
@@ -135,7 +137,7 @@ header img{
 }
 
 .quiz-input[type=text]:focus{
-    border: 3px solid rgba(239, 162, 30, 0.95);
+    border: 3px solid #efa21ef2;
     border-radius: 10px;
     outline: none;
 
@@ -205,4 +207,46 @@ header img{
     100%{
         opacity: 0;
     }
+}
+
+.start-menu{
+    text-align: center;
+}
+
+.start-menu-logo{
+    height: 400px;
+
+}
+
+.start-menu-buttons{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.start-menu-buttons a:hover{
+    background-color: rgba(239, 162, 30, 0.75);
+    transition: 0.3s;
+}
+
+
+.start-menu-buttons div{
+}
+
+.start-menu-buttons a{
+    border: black 2px;
+    border: dashed;
+    border-radius: 50px;
+    color: white;
+    text-shadow: -1px -1px 0 #0000002a, 1px -1px 0 #0000002a, -1px 1px 0 #0000002a, 1px 1px 0 #0000002a;;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #efa21ef2;
+    transition: 0.3s;
+    width: 60%;
+
 }
