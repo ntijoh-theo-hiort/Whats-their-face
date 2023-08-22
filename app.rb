@@ -16,7 +16,6 @@ class App < Sinatra::Base
         @full_name = Students.name_from_id(@id)
         @last_guess = session[:last_guess]
 
-
         percent_and_fraction = Students.percentage_and_fraction_guessed(@game_id)
         @percent_of_guessed = percent_and_fraction[0]
         @fraction_of_guessed = percent_and_fraction[1]

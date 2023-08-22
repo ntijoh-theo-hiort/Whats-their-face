@@ -6,7 +6,7 @@
             <%=@fraction_of_guessed[0]%>/<%=@fraction_of_guessed[1]%>
             <%=@progress_bar%>(<%=@percent_of_guessed%>%)
         </h1>
-        <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
+        <img class="quiz-img" src="/img/students/<%=@id%>.jpeg" alt="student">
         <div class="quiz-mode-container">
             <p><%=@mode%></p>
             <form action="/<%=@game_id%>/mode_toggle" method="POST">
