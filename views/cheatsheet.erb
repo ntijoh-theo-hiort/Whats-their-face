@@ -1,17 +1,19 @@
 
-<section class="img-grid">
-    <%@students.each do |student|%>
-        <div class="img-card" style="background-image: url(/img/<%=student['id']%>.jpeg)">
-            <h2><%=student['full_name']%></h2>
-        </div>
-        
-    <%end%>
-</section>
-<div class="button-section">
-    <a href="" class="button">
-        <div>Add New Entry</div>
-    </a>
-    <a href="/quiz_start" class="button">
-        <div>Start New Quiz</div>
-    </a>
+<div class="cheatsheet">
 </div>
+    <section class="img-grid">
+        <%@students.each do |student|%>
+            <div class="img-card" style="background-image: url(/img/<%=student['id']%>.jpeg)">
+                <h2><%=student['full_name']%></h2>
+            </div>
+            
+        <%end%>
+    </section>
+    <div class="button-section">
+        <a href="" class="button">
+            <div>Add New Entry</div>
+        </a>
+        <a href="/quiz_start" class="button">
+            <div>Start New Quiz</div>
+        </a>
+    </div>

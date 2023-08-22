@@ -32,9 +32,9 @@ class App < Sinatra::Base
 
 
         if Students.check_if_first_or_full(@game_id) == 'first'
-            @mode = 'first name only mode'
+            @mode = 'First Name Only Mode'
         else
-            @mode = 'full name mode'
+            @mode = 'Full Name Mode'
         end
 
 

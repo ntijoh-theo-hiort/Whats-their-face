@@ -2,15 +2,15 @@
     <div class="score-check"></div>
 
     <div class="quiz-img-container">
-        <h1>
+        <h1 class="progress-bar">
             <%=@fraction_of_guessed[0]%>/<%=@fraction_of_guessed[1]%>
             <%=@progress_bar%>(<%=@percent_of_guessed%>%)
         </h1>
         <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
         <div class="quiz-mode-container">
-            <p>Mode: <%=@mode%></p>
+            <p><%=@mode%></p>
             <form action="/<%=@game_id%>/mode_toggle" method="POST">
-                <input type="submit" value="toggle mode">
+                <input type="submit" value="Toggle Mode">
             </form>
         </div>
     </div>
