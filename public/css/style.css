@@ -14,7 +14,7 @@ header{
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: rgba(239, 162, 30, 0.95);
+    background-color: rgba(239, 162, 30, 100);
     position: sticky;
     top:0;
     margin-bottom: 2rem;
@@ -213,40 +213,90 @@ header img{
     text-align: center;
 }
 
-.start-menu-logo{
-    height: 400px;
 
+
+.start-menu-logo{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    position: relative;
+}
+
+.start-menu-logo p{
+    font-size: 170px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  
 }
 
 .start-menu-buttons{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    
 }
 
-.start-menu-buttons a:hover{
+.start-menu-buttons form{
+    width: 100%;
+}
+
+.start-button:hover{
     background-color: rgba(239, 162, 30, 0.75);
     transition: 0.3s;
 }
 
 
-.start-menu-buttons div{
-}
-
-.start-menu-buttons a{
+.start-button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
     border: black 2px;
     border: dashed;
     border-radius: 50px;
     color: white;
     text-shadow: -1px -1px 0 #0000002a, 1px -1px 0 #0000002a, -1px 1px 0 #0000002a, 1px 1px 0 #0000002a;;
-    margin: 1rem 0;
+    margin: 2rem 0;
     padding: 1rem;
-    background-color: #efa21ef2;
+    background-color: #efa21e;
     transition: 0.3s;
     width: 60%;
+    cursor: pointer;
 
 }
+
+.background-container{
+    overflow: hidden;
+}
+
+.sliding-background{
+    background: url(/logo/slide-modified.jpg) repeat-x;
+
+    width: 30918px;
+    height: 900px;
+    animation: slide 180s linear infinite;
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    position: fixed;
+}
+
+.blur{
+    background: #0000004e;
+    height: 100vh;
+}
+
+
+@keyframes slide{
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(-16959px, 0, 0);
+
+    }
+}
+
