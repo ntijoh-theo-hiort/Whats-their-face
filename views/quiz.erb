@@ -1,8 +1,20 @@
 <div class="quiz-section">
     <div class="score-check"></div>
 
-    <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
-    <!--<img class="bg-img" src="/logo/submarine.jpg">-->
+    <div class="quiz-img-container">
+        <h1>
+            <%=@fraction_of_guessed[0]%>/<%=@fraction_of_guessed[1]%>
+            <%=@progress_bar%>(<%=@percent_of_guessed%>%)
+        </h1>
+        <img class="quiz-img" src="/img/<%=@id%>.jpeg" alt="student">
+        <div class="quiz-mode-container">
+            <p>Mode: <%=@mode%></p>
+            <form action="/<%=@game_id%>/mode_toggle" method="POST">
+                <input type="submit" value="toggle mode">
+            </form>
+        </div>
+    </div>
+
     <div class="form-container">
         <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
             <input class="quiz-input" type="text" name="student_name" placeholder="Enter Guess!"> 
