@@ -31,7 +31,15 @@ class Students
             i += 1
         end
 
+        db.execute('INSERT INTO game_data (game_id, first_or_full, complete, last_guess, last_correct_answer, lives) VALUES (?,?,?,?,?,?)', new_id, "first", "False", nil, nil, 3)
+
         new_id
+    end
+
+    def self.lose_a_life(game_id)
+        lives = db.execute('SELECT lives FROM game_data WHERE game_id = ?', game_id)[0]['lives']
+        db.execute('UPDATE game_data SET lives = ? WHERE game_id = ?', lives.to_i - 1, game_id)
+        return "dead" if lives <= 1
     end
 
     def self.random_student_id_from_game(game_id)
@@ -40,20 +48,34 @@ class Students
         result.sample
     end
 
+    def self.update_last_guess(game_id, last_correct_answer, bool_string)
+        db.execute('UPDATE game_data SET last_correct_answer = ?, last_guess = ? WHERE game_id = ?', last_correct_answer, bool_string, game_id)
+    end
+
+    def self.get_last_guess_and_answer(game_id)
+        res = []
+        res << db.execute('SELECT last_guess FROM game_data WHERE game_id = ?', game_id)[0]['last_guess']
+        res << db.execute('SELECT last_correct_answer FROM game_data WHERE game_id = ?', game_id)[0]['last_correct_answer']
+    end
+
+    def self.clear_last_guess(game_id)
+        db.execute('UPDATE game_data SET last_guess = NULL, last_correct_answer = NULL WHERE game_id = ?', game_id)
+    end
+
     def self.set_guessed_to_true(student_id, game_id)
         db.execute('UPDATE games SET guessed = "True" WHERE student_id = ? AND id = ?', student_id, game_id)
     end
 
-    def self.set_to_first_or_full(game_id, first_or_full)
-        db.execute('INSERT INTO first_or_full (game_id, first_or_full_string) VALUES (?,?)', game_id, first_or_full)
+    def self.check_if_game_over(game_id)
+        db.execute('SELECT * FROM games WHERE id = ? AND guessed = "False"', game_id) == []
     end
 
-    def self.update_first_or_full(first_or_full, game_id)
-        db.execute('UPDATE first_or_full SET first_or_full_string = ? WHERE game_id = ?', first_or_full, game_id)
+    def self.set_to_first_or_full(first_or_full, game_id)
+        db.execute('UPDATE game_data SET first_or_full = ? WHERE game_id = ?', first_or_full, game_id)
     end
 
     def self.check_if_first_or_full(game_id)
-        db.execute('SELECT first_or_full_string FROM first_or_full WHERE game_id = ?', game_id)[0]['first_or_full_string']
+        db.execute('SELECT first_or_full FROM game_data WHERE game_id = ?', game_id)[0]['first_or_full']
     end
 
     def self.percentage_and_fraction_guessed(game_id)

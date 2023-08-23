@@ -21,8 +21,8 @@
             <input class="quiz-submit" type="submit" value="Guess">
         </form>
     </div>
-    <%unless @last_guess == nil%>
-        <%if @last_guess[1]%>
+    <%unless @last_guess[0] == nil%>
+        <%if @last_guess[1] == "True"%>
             <div class="correct-popup">Correct!</div>
         <%else%>
             <div class="incorrect-popup">Wrong, the correct name was <%=@last_guess[0]%></div>
