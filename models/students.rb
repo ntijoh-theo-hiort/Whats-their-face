@@ -66,6 +66,15 @@ class Students
         db.execute('UPDATE games SET guessed = "True" WHERE student_id = ? AND id = ?', student_id, game_id)
     end
 
+    def self.check_lives(game_id)
+        db.execute('SELECT lives FROM game_data WHERE game_id = ?', game_id)[0]['lives']
+    end
+
+    def self.check_if_dead(game_id)
+        lives = check_lives(game_id)
+        lives <= 0
+    end
+
     def self.check_if_game_over(game_id)
         db.execute('SELECT * FROM games WHERE id = ? AND guessed = "False"', game_id) == []
     end

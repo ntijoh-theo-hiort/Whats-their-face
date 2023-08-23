@@ -15,6 +15,12 @@
         </div>
     </div>
 
+    <div class="heart-container">
+        <img src="/img/hearts/<%=@heart_images[0]%>.png" alt="">
+        <img src="/img/hearts/<%=@heart_images[1]%>.png" alt="">
+        <img src="/img/hearts/<%=@heart_images[2]%>.png" alt="">
+    </div>
+
     <div class="form-container">
         <form action="/quiz/<%=@game_id%>/<%=@id%>" method="POST" autocomplete="off">
             <input class="quiz-input" type="text" name="student_name" placeholder="Enter Guess!"> 

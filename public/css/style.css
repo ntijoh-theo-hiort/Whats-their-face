@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
 
 *{
     margin: 0;
@@ -316,13 +317,29 @@ background-color: rgb(255, 255, 255);
 
 }
 
+.heart-container{
+    position: absolute;
+    top: 44px;
+    left: 40px;
+    z-index: 999;
+    display: flex;
+    gap: 10px;
+}
+
+.heart-container img{
+    height: 80px;
+}
+
 .progress-bar{
-    font-family: 'Press Start 2P';
+    font-family: 'adlam display';
     margin-top: -.5rem;
 }
 
-.quiz-mode-container{
-
+#man-im-dead{
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    width: 300px;
 }
 
 .quiz-mode-container p{
@@ -331,9 +348,7 @@ background-color: rgb(255, 255, 255);
     font-size: 15px;
 }
 
-.quiz-mode-container form{
-    
-}
+
 
 .quiz-mode-container input{
     border: 3px solid rgba(239, 162, 30, 0.95);

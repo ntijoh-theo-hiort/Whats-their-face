@@ -9,7 +9,27 @@ class App < Sinatra::Base
     end
 
     get '/quiz/:game_id' do
+
         @game_id = params[:game_id]
+
+        if Students.check_if_game_over(@game_id)
+            redirect('/success')
+        end
+
+        if Students.check_if_dead(@game_id)
+            redirect('/death')
+        end
+
+        @heart_images = []
+        lives = Students.check_lives(@game_id)
+        lives.times do
+            @heart_images << "fullheart"
+        end
+
+        (3 - lives).times do 
+            @heart_images << "emptyheart"
+        end
+
         @id = Students.random_student_id_from_game(@game_id)
         @full_name = Students.name_from_id(@id)
         @last_guess = Students.get_last_guess_and_answer(@game_id)
@@ -43,9 +63,13 @@ class App < Sinatra::Base
         erb :cheatsheet
     end
 
-    get '/new_entry' do
-        erb :new_entry
-    end 
+    get '/success' do
+        erb :success
+    end
+
+    get '/death' do
+        erb :death
+    end
 
     post '/quiz/:game_id/:student_id' do
         student_id = params[:student_id]
@@ -69,7 +93,7 @@ class App < Sinatra::Base
         else
             Students.update_last_guess(game_id, "False", correct_answer)
             if Students.lose_a_life(game_id) == "dead"
-                redirect('http://9gag.com')
+                redirect('/death')
             end
         end
         
